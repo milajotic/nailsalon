@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nailicious.no - Tjenester</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="logo">
+    <a href="/">
+      <img src="../static/images/Nailicous.svg" alt="Nailicous with a cursive font and a strawberry stem on the u">
+    </a>  
+  </div>
+
+    <div class="subtitle">
+        <p>Valgfritt design, ekstra kostnad varierer etter forespørsel</p>
+    </div>
+
+    <div class="services-grid">
+        {% for service in services %}
+        <div class="service-card">
+            <img src="../static/images/nails{{ loop.index }}.jpg" alt="{{ service[1] }}">
+            <div class="service-info">
+                <h3>{{ service[1] }} – {{ service[3] }} kr</h3>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="book-button">
+        <a href="/book">Bestill time?</a>
+    </div>
+    
+</body>
+</html>

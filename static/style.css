@@ -1,0 +1,217 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+    margin: -80px 0;
+}
+
+.logo img {
+    max-width: 400px;
+    width: 30%;
+    height: auto;
+}
+
+/* Home page buttons */
+.button {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    margin: 120px 0;
+}
+
+.button a {
+    background-color: #e89999;
+    color: white;
+    padding: 90px 140px;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.button a:hover {
+    background-color: #e07d7d;
+}
+
+/* Services page */
+.subtitle {
+    background-color: #e89999;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    display: inline-block;
+    margin: 5px;
+    max-width: 600px;
+}
+
+.subtitle p {
+    margin: 0;
+    font-size: 20px;
+}
+
+.services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px auto;
+    flex-wrap: wrap;
+    max-width: 1000px;
+}
+
+.service-card {
+    text-align: center;
+}
+
+.service-card img {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.service-info {
+    background-color: #e89999;
+    color: white;
+    padding: 15px 20px;
+    margin-top: -5px;
+    border-radius: 20px;
+}
+
+.service-info h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.book-button {
+    margin: 30px 0 20px 0;
+}
+
+.book-button a {
+    background-color: #d16b6b;
+    color: white;
+    padding: 15px 50px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 18px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.book-button a:hover {
+    background-color: #c55555;
+}
+
+.back-link {
+    color: blue;
+    text-decoration: underline;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Log in page */
+
+.subtitle h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.login {
+    background-color: #e89999;
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.login input {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.login button {
+    background-color: #d16b6b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.login p{
+    font-size: 20px;
+}
+
+.login button:hover {
+    background-color: #c55555;
+}
+
+.login a {
+    color: #5a2020;
+    font-weight: bold;
+}
+
+/* Registrer page bruker også log in css */
+/* Book page */
+.booking {
+    background-color: #e89999;
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.booking p{
+    font-size: 20px;
+}
+
+.booking input,
+.booking select {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.booking select {
+    cursor: pointer;
+}
+
+.booking button {
+    background-color: #d16b6b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.booking button:hover {
+    background-color: #c55555;
+}
+
+.booking a {
+    color: #5a2020;
+    font-weight: bold;
+}

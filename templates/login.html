@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <div class="logo">
+    <a href="/">
+      <img src="../static/images/Nailicous.svg" alt="Nailicous with a cursive font and a strawberry stem on the u">
+    </a>  
+  </div>
+
+    <div class="subtitle">
+      <h1>Logg inn</h1>
+    </div>
+
+    <div class="login">
+      <form method="POST">
+        Email:
+        <input type="email" name="email" required><br><br>
+        
+        Passord:
+        <input type="password" name="password" required><br><br>
+        
+        <button type="submit">Logg inn</button>
+      </form>
+
+      <p>
+        Ingen bruker? <a href="/registrer">Registrer deg</a>
+      </p>
+    </div>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+{% endwith %}
+
+
+
+
+</body>
+</html>
