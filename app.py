@@ -7,7 +7,6 @@ from dotenv import load_dotenv, find_dotenv
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "temp-secret")
 
-
 dotenv_path = find_dotenv()
 load_dotenv(dotenv_path)  #last .env fila
 env_User = os.getenv("DB_USER")
@@ -28,7 +27,6 @@ def get_connection():
 @app.route("/")
 def index():
     return render_template("index.html")
-
 
 
 @app.route("/services", methods=["GET", "POST"])
