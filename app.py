@@ -38,8 +38,6 @@ def services_side():
     mydb.close()
     return render_template("services.html", services=services)
 
-
-
 @app.route("/book", methods=["GET", "POST"])
 def login_registrer():
     if "user_id" not in session:
