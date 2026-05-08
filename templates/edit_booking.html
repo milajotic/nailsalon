@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nailicious.no - Rediger booking</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="logo">
+        <a href="/">
+            <img src="/static/images/Nailicous.svg" alt="Nailicous logo">
+        </a>  
+    </div>
+    
+    <div class="subtitle">
+        <h1>Rediger booking</h1>
+    </div>
+
+    <div class="booking">
+        <form action="/admin/update" method="POST">
+            <input type="hidden" name="id" value="{{ appointment[0] }}" />
+
+            Dato:
+            <input type="date" name="date" value="{{ appointment[1] }}" required /><br><br>
+
+            Tid:
+            <select name="time" required>
+                <option value="12:00">12:00</option>
+                <option value="14:00">14:00</option>
+                <option value="17:00">17:00</option>
+            </select><br><br>
+
+            <button type="submit">Oppdater booking</button>
+        </form>
+
+        <p><a class="back-link" href="/admin">Tilbake til adminside</a></p>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+</body>
+</html>

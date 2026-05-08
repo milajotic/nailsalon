@@ -154,6 +154,31 @@ def admin():
     mydb.close()
     return render_template("admin.html", bookings=bookings)
 
+@app.route("/admin/edit/<int:cid>")
+def edit_booking(cid):
+    mydb = get_connection()
+    cursor = mydb.cursor()
+    cursor.execute(
+        "SELECT id, date, time FROM appointment WHERE id = %s", (cid,))
+    appointment = cursor.fetchone()
+    cursor.close()
+    mydb.close()
+    return render_template("edit_booking.html", appointment=appointment)
+
+
+
+@app.route("/admin/update", methods=["POST"])
+def update_booking():
+    bid = request.form["id"]
+    date = request.form["date"]
+    time = request.form["time"]
+    mydb = get_connection()
+    cursor = mydb.cursor()
+    cursor.execute("UPDATE appointment SET date = %s, time = %s WHERE id = %s", (date, time, bid))
+    mydb.commit()
+    cursor.close()
+    return redirect("/admin")
+
 @app.route("/admin/delete/<int:cid>")
 def delete_booking(cid):
     mydb = get_connection()
@@ -164,15 +189,12 @@ def delete_booking(cid):
     mydb.close()
     return redirect("/admin")
 
+
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect("/")
 
             
-
-
-
-
 if __name__ == "__main__":
     app.run(debug=True)
