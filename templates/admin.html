@@ -4,30 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nailicious.no - Admin</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <h1>Admin side</h1>
-    <table>
-    <tr>
-        <th>Kunde</th>
-        <th>Tjeneste</th>
-        <th>Dato</th>
-        <th>Tid</th>
-    </tr>
-    {% for b in bookings %}
-    <tr>
-        <td>{{ b[1] }}</td>
-        <td>{{ b[2] }}</td>
-        <td>{{ b[3] }}</td>
-        <td>{{ b[4] }}</td>
-        <td>
-            <a href="/admin/delete/{{ b[0] }}"
-            onclick="return confirm('Er du sikker på at du vil slette bookingen?');">
-            Slett</a>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+    <div class="logo">
+        <a href="/">
+            <img src="../static/images/Nailicous.svg" alt="Nailicous with a cursive font and a strawberry stem on the u">
+        </a>  
+    </div>
+    
+    <div class="subtitle">
+        <h1>Admin side</h1>
+    </div>
+
+    <div class="booking">
+        <table>
+            <tr>
+                <th>Kunde</th>
+                <th>Tjeneste</th>
+                <th>Dato</th>
+                <th>Tid</th>
+                <th>Handling</th>
+            </tr>
+            {% for b in bookings %}
+            <tr>
+                <td>{{ b[1] }}</td>
+                <td>{{ b[2] }}</td>
+                <td>{{ b[3] }}</td>
+                <td>{{ b[4] }}</td>
+                <td>
+                    <a class="back-link" href="/admin/delete/{{ b[0] }}"
+                    onclick="return confirm('Er du sikker på at du vil slette bookingen?');">
+                    Slett</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
 </body>
 </html>
