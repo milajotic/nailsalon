@@ -120,23 +120,41 @@ def login():
         cursor = mydb.cursor()
 
         cursor.execute(
-            "SELECT id, username, password FROM users WHERE email=%s",
+            "SELECT id, username, password, role FROM users WHERE email=%s",  #fikk hjelp fra ki
             (email,)
         )
         user = cursor.fetchone()
         mydb.close()
 
-        if user and user [2] == passord:
+        if user and user[2] == passord:
             session["user_id"] = user[0]
             session["username"] = user[1]
+            session["role"] = user[3]
             flash("Innlogget!")
-            return redirect("/book")
+            if user[3] == "admin":  #fikk hjelp fra ki med dette
+                return redirect("/admin")
+            else:
+                return redirect("/book")
         
         flash("Feil email eller passord")
 
     return render_template("login.html")
 
-
+@app.route("/admin")
+def admin():
+    if session.get("role") != "admin":
+        return redirect("/login")
+    
+    mydb = get_connection()
+    cursor = mydb.cursor()
+    cursor.execute(
+        "SELECT appointment.id, users.username, service.name, appointment.date, appointment.time FROM appointment JOIN users ON appointment.user_id = users.id JOIN service ON appointment.service_id = service.id"
+    )
+    bookings = cursor.fetchall()
+    mydb.close()
+    return render_template("admin.html", bookings=bookings)
+    
+    
 @app.route("/logout")
 def logout():
     session.clear()
