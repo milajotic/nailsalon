@@ -52,6 +52,16 @@ def login_registrer():
         date = request.form["dato"]
         time = request.form["tid"]
 
+        cursor.execute("SELECT * FROM appointment WHERE date = %s AND time = %s", (date, time))
+        
+        existing = cursor.fetchone()
+        
+        if existing:
+            flash("Den time er allerede booket, velg en annen time")
+            cursor.close()
+            mydb.close()
+            return redirect("/book")
+        
         cursor.execute(
             "INSERT INTO appointment (user_id, service_id, date, time) VALUES (%s,%s,%s,%s)",
             (session["user_id"], service_id, date, time)
