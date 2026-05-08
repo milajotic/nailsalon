@@ -21,6 +21,11 @@
         <td>{{ b[2] }}</td>
         <td>{{ b[3] }}</td>
         <td>{{ b[4] }}</td>
+        <td>
+            <a href="/admin/delete/{{ b[0] }}"
+            onclick="return confirm('Er du sikker på at du vil slette bookingen?');">
+            Slett</a>
+        </td>
     </tr>
     {% endfor %}
 </table>

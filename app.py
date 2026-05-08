@@ -153,8 +153,17 @@ def admin():
     bookings = cursor.fetchall()
     mydb.close()
     return render_template("admin.html", bookings=bookings)
-    
-    
+
+@app.route("/admin/delete/<int:cid>")
+def delete_booking(cid):
+    mydb = get_connection()
+    cursor = mydb.cursor()
+    cursor.execute("DELETE FROM appointment WHERE id = %s", (cid,))
+    mydb.commit()
+    cursor.close()
+    mydb.close()
+    return redirect("/admin")
+
 @app.route("/logout")
 def logout():
     session.clear()
