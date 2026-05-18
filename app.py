@@ -28,9 +28,29 @@ def get_connection():
 def index():
     return render_template("index.html")
 
-@app.route("/faq")
-def faq():
-    return render_template("faq.html")
+@app.route("/faq/sporsmal", methods=["GET", "POST"])
+def send_sporsmal():
+    if "user_id" not in session:
+        flash("Du må logge inn for å sende inn et spørsmål")
+        return redirect("/login")
+    
+    if request.method == "POST":
+        sporsmal = request.form["sporsmal"]
+        
+        mydb = get_connection()
+        cursor = mydb.cursor()
+        cursor.execute(
+            "INSERT INTO faq_questions (user_id, sporsmal) VALUES (%s, %s)",
+            (session["user_id"], sporsmal)
+        )
+        mydb.commit()
+        cursor.close()
+        mydb.close()
+        
+        flash("Spørsmålet ditt er sendt inn!")
+        return redirect("/faq")
+    
+    return render_template("send_sporsmal.html")
 
 @app.route("/services", methods=["GET", "POST"])
 def services_side():
