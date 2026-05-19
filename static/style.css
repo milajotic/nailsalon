@@ -40,6 +40,25 @@ body {
     background-color: #e07d7d;
 }
 
+.faq-link {
+    text-align: center;
+    margin-top: -80px;
+}
+
+.faq-link a {
+    background-color: #e89999;
+    color: white;
+    padding: 15px 50px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.faq-link a:hover {
+    background-color: #e07d7d;
+}
+
 /* Services page */
 .subtitle {
     background-color: #e89999;

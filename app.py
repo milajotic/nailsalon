@@ -28,6 +28,10 @@ def get_connection():
 def index():
     return render_template("index.html")
 
+@app.route("/faq")
+def faq():
+    return render_template("faq.html")
+
 @app.route("/faq/sporsmal", methods=["GET", "POST"])
 def send_sporsmal():
     if "user_id" not in session:
