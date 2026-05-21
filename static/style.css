@@ -18,6 +18,20 @@ body {
     height: auto;
 }
 
+.navbar a {
+    background-color: #c55555;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 22px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #b04444;
+}
+
 /* Home page buttons */
 .button {
     display: flex;
@@ -46,7 +60,7 @@ body {
 }
 
 .faq-link a {
-    background-color: #e89999;
+    background-color: #c55555;
     color: white;
     padding: 15px 50px;
     text-decoration: none;
@@ -56,7 +70,7 @@ body {
 }
 
 .faq-link a:hover {
-    background-color: #e07d7d;
+    background-color: #b04444;
 }
 
 /* Services page */
